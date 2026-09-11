@@ -66,17 +66,17 @@ human-in-the-loop interrupt/resume via checkpointing.
                                            +-> :hold               (:hard? true)
 ```
 
-- `src/mixed_crop/store.cljc` — `Store` protocol +
+- `src/mixed_crop/store.cljk` — `Store` protocol +
   `MemStore`: registered crop plots, committed records, an
   append-only audit ledger.
-- `src/mixed_crop/advisor.cljc` — `Advisor` protocol;
+- `src/mixed_crop/advisor.cljk` — `Advisor` protocol;
   `mock-advisor` (deterministic, default) proposes a tend or harvest
   operation from a request; `llm-advisor` wraps a
   `langchain.model/ChatModel` — either way the advisor only ever
   produces a `:propose`-effect proposal, never a committed record, and
   LLM parse failures always yield `confidence 0.0` (forces escalation,
   never fabricated confidence).
-- `src/mixed_crop/governor.cljc` —
+- `src/mixed_crop/governor.cljk` —
   `MixedCropGovernor/check`: a pure function, wired as its own
   `:govern` node. Hard invariants (unregistered plot, a proposal
   whose `:effect` isn't `:propose`) always route to `:hold`. Escalation
@@ -87,7 +87,7 @@ human-in-the-loop interrupt/resume via checkpointing.
   approval (`actor/approve!`), matching the README's robotics-premise
   statement that operating near buyers/visitors on-site, or applying
   treatments near water sources, always require human sign-off.
-- `src/mixed_crop/actor.cljc` — `build-graph`, `run-request!`,
+- `src/mixed_crop/actor.cljk` — `build-graph`, `run-request!`,
   `approve!`: the `langgraph.graph/state-graph` wiring itself.
 
 ```bash
