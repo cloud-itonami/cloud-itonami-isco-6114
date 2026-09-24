@@ -1,5 +1,5 @@
 (ns mixed-crop.actor-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [mixed-crop.actor :as actor]
             [mixed-crop.store :as store]))
 
