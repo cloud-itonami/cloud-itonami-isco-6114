@@ -1,5 +1,5 @@
 (ns mixed-crop.governor-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [mixed-crop.store :as store]
             [mixed-crop.governor :as governor]))
 
